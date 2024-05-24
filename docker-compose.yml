@@ -4,6 +4,7 @@ services:
     build: .
     image: oxen-docker-oxen
     stdin_open: true
+    privileged: true
     volumes: 
       - ./.oxen:/root/.oxen
     ports:

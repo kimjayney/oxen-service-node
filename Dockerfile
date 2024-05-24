@@ -5,5 +5,7 @@ RUN lsb_release -sc
 RUN echo "deb https://deb.oxen.io $(lsb_release -sc) main" | tee /etc/apt/sources.list.d/oxen.list
 RUN apt update 
 RUN apt install oxen-service-node -y
+RUN apt install systemd -y
+ENTRYPOINT ["/lib/systemd/systemd"]
 #RUN oxend prepare_registration
-CMD ["sleep", "infinity"]
+#CMD ["oxend","--service-node"]
